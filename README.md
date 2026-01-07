@@ -57,24 +57,35 @@ Healthcare-Data-Analysis-Excel/
 └── dashboard/
     └── healthcare_dashboard.xlsx
 
+```
 
 
----
 
 ## 🧹 Data Cleaning
 - Identified missing values marked as `?` in the **Medical Examinations** and **Hospitalization Details** tables.
-- Replaced missing **Month** values with *September* and **Year** values with the rounded average year.
-- Filled missing values in **Smoker**, **Hospital Tier**, and **City Tier** columns using the most frequently occurring values.
+- Replaced missing **Month** values with *September*.
+- Filled missing **Year** values using the rounded average year.
+- Filled missing values in **Smoker**, **Hospital Tier**, and **City Tier** columns using the most frequently occurring values (mode).
 - Handled missing **State ID** values using appropriate placeholders such as *Unknown*.
 
 ---
 
 ## 🔄 Data Transformation
-- Split the **Names** column into **Title**, **First Name**, and **Last Name**.
-- Converted **NumberOfMajorSurgeries** into numeric values by replacing non-numeric characters.
-- Checked and resolved inconsistencies in **Smoker** and **Heart Issues** columns.
-- Created a derived column **Weight Status** based on BMI categories.
-- Created a derived column **Diabetes Status** based on HbA1C levels.
+- Split the **Names** column into three meaningful columns:
+  - Title  
+  - First Name  
+  - Last Name
+- Converted **NumberOfMajorSurgeries** into numeric format by replacing non-numeric characters.
+- Checked and corrected inconsistencies in **Smoker** and **Heart Issues** columns.
+- Created a new column **Weight Status** based on BMI categories:
+  - Underweight  
+  - Normal Weight  
+  - Overweight  
+  - Obesity
+- Created a new column **Diabetes Status** based on HbA1C levels:
+  - Normal  
+  - Prediabetes  
+  - Diabetes
 - Merged **Day, Month, and Year** into a single **Date of Birth** column formatted as *DD-MMM-YYYY*.
 - Calculated **Age** for each customer as of **8th June 2023**.
 - Formatted **Charges** as currency ($).
@@ -82,22 +93,25 @@ Healthcare-Data-Analysis-Excel/
 ---
 
 ## 📊 Data Analysis & Visualization
-- Combined all datasets into a single **Healthcare** sheet using **Customer ID** with VLOOKUP.
-- Retained relevant analytical fields for focused analysis.
+- Combined all three tables into a single **Healthcare** sheet using **Customer ID** with VLOOKUP.
+- Retained only relevant columns required for analysis.
 - Created **Pivot Tables** to summarize healthcare metrics.
-- Visualized insights using **Pie/Donut, Bar/Column, Line, and Scatter charts**.
+- Used appropriate chart types for effective visualization:
+  - Pie / Donut charts
+  - Column / Bar charts
+  - Line and Scatter plots
 
 ---
 
 ## 📈 Key Analyses Performed
 
 ### 🥧 Pie / Donut Chart Analysis
-- Distribution of cancer history among smokers and non-smokers.
-- Comparison of major surgeries and average HbA1C for patients with and without transplant history.
+- Distribution of cancer history among **smokers vs non-smokers**.
+- Comparison of **total major surgeries** and **average HbA1C** between patients **with and without transplant history**.
 
 ### 📊 Column / Bar Chart Analysis
-- Healthcare charges across different **Weight Status** and **Diabetes Status**.
-- Comparison of average healthcare charges by **Hospital Tier** across different states.
+- Variation of healthcare charges across different **Weight Status** and **Diabetes Status**.
+- Comparison of **average healthcare charges** by **Hospital Tier** across different **States**.
 
 ### 📉 Line / Scatter Plot Analysis
 - Relationship between **Age and BMI**.
@@ -108,14 +122,16 @@ Healthcare-Data-Analysis-Excel/
 
 ## 📌 Key Findings
 - Smokers show a higher prevalence of cancer history compared to non-smokers.
-- Patients with transplant history tend to have higher numbers of major surgeries and elevated HbA1C levels.
+- Patients with transplant history tend to undergo more major surgeries and show higher HbA1C levels.
 - Obese and diabetic patients generally incur higher healthcare charges.
 - Higher hospital tiers are associated with increased average healthcare costs.
-- Healthcare charges tend to increase with age.
+- Healthcare charges tend to increase with patient age.
 
 ---
 
 ## 📊 Dashboard
-- Built an interactive Excel dashboard consolidating all key insights.
-- Added slicers for **Weight Status** and **Diabetes Status**.
-- Enabled dynamic filtering across all charts for easy comparison and interpretation.
+- Developed an **interactive Excel dashboard** consolidating all key insights.
+- Integrated **slicers** for:
+  - Weight Status
+  - Diabetes Status
+- Enabled dynamic filtering across all visualizations for easy comparison and interpretation.
